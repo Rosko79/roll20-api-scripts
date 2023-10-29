@@ -1,0 +1,181 @@
+
+<div class="2colrow">
+	<div class="col">
+		<h2><span name="attr_character_name"></span></h2>
+		Grade <select name="attr_grade">
+				<option value="Cadet">Cadet</option>
+				<option value="Genin">Genin</option>
+				<option value="Chuunin">Chuunin</option>
+				<option value="Jounin">Jounin rang A</option>
+				<option value="Sensei">Jounin rang S / Sensei</option>
+				<option value="Sanin">Jounin rang AA / Sanin</option>
+				<option value="Kage">Jounin rang S+ / Kage</option>
+				</select>
+				<br />
+		Expériences gagnés <input type="number" name="attr_expGagnes" style="width:100px" /> <br />
+		Expériences dépensés <input type="number" name="attr_expDepenses" style="width:100px" /> <br />
+
+
+
+		Vigueur <input type="number" name="attr_vigueurCourante" style="width:100px" /> <br />
+		Caractère <input type="number" name="attr_caractereCourante" style="width:100px" /> <br />
+		Chakra <input type="number" name="attr_chakraCourante" style="width:100px" /> / Chakra Max <input type="number" name="attr_chakraMax" style="width:100px" /> <br />
+		Régénération / tour <input type="text" name="attr_regenChakra" style="width:100px" /> <br />
+		Contrôle du Chakra <input type="number" name="attr_controleChakra" style="width:100px" /> <br />
+	</div>
+	<div class="col">
+		<h2>Interceptions</h2>
+		Interc. Max via ARM <input type="number" name="attr_interceptionARM" style="width:100px" /> <br />
+		Interc. Max via TAI <input type="number" name="attr_interceptionTAI" style="width:100px" /> <br />
+		Interc. Max / Round <input type="number" name="attr_interceptionMax" style="width:100px" /> <br />
+
+		<h2>Initiative</h2>
+		Jet d'initiative <button type="roll" value="/roll 1d10+@{stcmp_physique}+?{bonus/malus?|0}&{tracker} Jet d'initiative de @{character_name}" name="roll_initiative"></button>
+	
+		<h2>Actions Spécifiques en jeu</h2>
+		Invoquer votre interception <button type="roll" value="@{character_name} veut faire une interception !" name="roll_interception"></button><br />
+		Invoquer une action de lignée <button type="roll" value=" @{character_name} veut faire une action de lignée !" name="roll_lignee"></button><br />
+		Invoquer une action retardé <button type="roll" value=" @{character_name} veut faire une action retardée !" name="roll_retardee"></button><br />
+	</div>
+</div>
+<div style="float:left;">
+
+		<h2>Base</h2>
+		<table>
+			<tr>
+				<th>BASE</th>
+				<th>Score</th>
+			</tr>
+			<tr>
+				<td>Corps (COR)</td>
+				<td><input type="number" name="attr_sb_cor" /></td>
+			</tr>
+			<tr>
+				<td>Esprit (ESP)</td>
+				<td><input type="number" name="attr_sb_esp" /></td>
+			</tr>
+			<tr>
+				<td>Armes (ARM)</td>
+				<td><input type="number" name="attr_sb_arm" /></td>
+			</tr>
+			<tr>
+				<td>Taijutsu (TAI)</td>
+				<td><input type="number" name="attr_sb_tai" /></td>
+			</tr>
+			<tr>
+				<td>Ninjutsu (NIN)</td>
+				<td><input type="number" name="attr_sb_nin" /></td>
+			</tr>
+			<tr>
+				<td>Genjutsu (GEN)</td>
+				<td><input type="number" name="attr_sb_gen" /></td>
+			</tr>
+			<tr>
+				<td>Lignée (LIGN)</td>
+				<td><input type="number" name="attr_sb_lign" /></td>
+			</tr>
+		</table>
+</div>
+<div>
+		<h2>Compétences communes</h2>
+		<table>
+			<tr>
+				<th>Compétences</th>
+				<th>Score cmp</th>
+				<th>Score total (base + cmp)</th>
+				<th>Commentaires</th>
+			</tr>
+			<tr>
+				<td>Armes simples (ARM) <button type="roll" value="/roll 1d10+@{stcmp_armessimples}+?{bonus/malus?|0} Jet de 'Armes Simples' de @{character_name}" name="roll_armessimples"></button></td>
+				<td><input type="number" name="attr_scmp_armessimples" /></td>
+				<td><input type="number" name="attr_stcmp_armessimples" /></td>
+				<td><input type="text" name="attr_comment_armessimples" /></td>
+			</tr>
+			<tr>
+				<td>Camouflage (NIN) <button type="roll" value="/roll 1d10+@{stcmp_camouflage}+?{bonus/malus?|0} Jet de 'Camouflage' de @{character_name}" name="roll_camouflage"></button></td>
+				<td><input type="number" name="attr_scmp_camouflage" /></td>
+				<td><input type="number" name="attr_stcmp_camouflage" /></td>
+				<td><input type="text" name="attr_comment_camouflage" /></td>
+			</tr>
+			<tr>
+				<td>Corps à corps (TAI) <button type="roll" value="/roll 1d10+@{stcmp_cac}+?{bonus/malus?|0} Jet de 'Corps à corps' de @{character_name}" name="roll_cac"></button></td>
+				<td><input type="number" name="attr_scmp_cac" /></td>
+				<td><input type="number" name="attr_stcmp_cac" /></td>
+				<td><input type="text" name="attr_comment_cac" /></td>
+			</tr>
+			<tr>
+				<td>Esquive (TAI) <button type="roll" value="/roll 1d10+@{stcmp_esquive}+?{bonus/malus?|0} Jet de 'Esquive' de @{character_name}" name="roll_esquive"></button></td>
+				<td><input type="number" name="attr_scmp_esquive" /></td>
+				<td><input type="number" name="attr_stcmp_esquive" /></td>
+				<td><input type="text" name="attr_comment_esquive" /></td>
+			</tr>
+			<tr>
+				<td>Gensou (GEN) <button type="roll" value="/roll 1d10+@{stcmp_gensou}+?{bonus/malus?|0} Jet de 'Gensou' de @{character_name}" name="roll_gensou"></button></td>
+				<td><input type="number" name="attr_scmp_gensou" /></td>
+				<td><input type="number" name="attr_stcmp_gensou" /></td>
+				<td><input type="text" name="attr_comment_gensou" /></td>
+			</tr>
+			<tr>
+				<td>Henge (NIN) <button type="roll" value="/roll 1d10+@{stcmp_henge}+?{bonus/malus?|0} Jet de 'Henge' de @{character_name}" name="roll_henge"></button></td>
+				<td><input type="number" name="attr_scmp_henge" /></td>
+				<td><input type="number" name="attr_stcmp_henge" /></td>
+				<td><input type="text" name="attr_comment_henge" /></td>
+			</tr>
+			<tr>
+				<td>Kawarimi (GEN) <button type="roll" value="/roll 1d10+@{stcmp_kawarimi}+?{bonus/malus?|0} Jet de 'Kawarimi' de @{character_name}" name="roll_kawarimi"></button></td>
+				<td><input type="number" name="attr_scmp_kawarimi" /></td>
+				<td><input type="number" name="attr_stcmp_kawarimi" /></td>
+				<td><input type="text" name="attr_comment_kawarimi" /></td>
+			</tr>
+			<tr>
+				<td>Mental (ESP) <button type="roll" value="/roll 1d10+@{stcmp_mental}+?{bonus/malus?|0} Jet de 'Mental' de @{character_name}" name="roll_mental"></button></td>
+				<td><input type="number" name="attr_scmp_mental" /></td>
+				<td><input type="number" name="attr_stcmp_mental" /></td>
+				<td><input type="text" name="attr_comment_mental" /></td>
+			</tr>
+			<tr>
+				<td>Parade (ARM) <button type="roll" value="/roll 1d10+@{stcmp_parade}+?{bonus/malus?|0} Jet de 'Parade' de @{character_name}" name="roll_parade"></button></td>
+				<td><input type="number" name="attr_scmp_parade" /></td>
+				<td><input type="number" name="attr_stcmp_parade" /></td>
+				<td><input type="text" name="attr_comment_parade" /></td>
+			</tr>
+			<tr>
+				<td>Physique (COR) <button type="roll" value="/roll 1d10+@{stcmp_physique}+?{bonus/malus?|0} Jet de 'Physique' de @{character_name}" name="roll_Physique"></button></td>
+				<td><input type="number" name="attr_scmp_physique" /></td>
+				<td><input type="number" name="attr_stcmp_physique" /></td>
+				<td><input type="text" name="attr_comment_physique" /></td>
+			</tr>
+			<tr>
+				<td>Survie (NIN) <button type="roll" value="/roll 1d10+@{stcmp_survie}+?{bonus/malus?|0} Jet de 'Survie' de @{character_name}" name="roll_survie"></button></td>
+				<td><input type="number" name="attr_scmp_survie" /></td>
+				<td><input type="number" name="attr_stcmp_survie" /></td>
+				<td><input type="text" name="attr_comment_survie" /></td>
+			</tr>
+			<tr>
+				<td>Vigilance (NIN) <button type="roll" value="/roll 1d10+@{stcmp_vigilance}+?{bonus/malus?|0} Jet de 'Vigilance' de @{character_name}" name="roll_vigilance"></button></td>
+				<td><input type="number" name="attr_scmp_vigilance" /></td>
+				<td><input type="number" name="attr_stcmp_vigilance" /></td>
+				<td><input type="text" name="attr_comment_vigilance" /></td>
+			</tr>
+		</table>
+</div>
+<div style="float:none;">
+	<h2>Compétences (combat, terrain, clan)</h2>
+	Invoquer une action de lignée <button type="roll" value=" @{character_name} veut faire une action de lignée !" name="roll_lignee"></button>
+	<fieldset class="repeating_cmpSpe"> 
+		<table>
+			<tr>
+				<th>Compétences Spécifiques</th>
+				<th>Score</th>
+				<th>Score total</th>
+				<th>Commentaire</th>
+			</tr>
+			<tr>
+				<td><input type="text" style="width:200px" name="attr_nom_cmps" /><button type="roll" value="/roll 1d10+@{stcmps}+?{bonus/malus?|0} Jet de '@{nom_cmps}' de @{character_name}" name="roll_cmps"></button></td>
+				<td><input type="number" name="attr_scmps" /></td>
+				<td><input type="number" name="attr_stcmps" /></td>
+				<td><input type="text" name="attr_comment_cmps" /></td>
+			</tr>
+		</table>
+	</fieldset>
+</div>

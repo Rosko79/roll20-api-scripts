@@ -1,0 +1,41 @@
+/*Configure the tab buttons*/
+.sheet-character,
+.sheet-grimoire,
+.sheet-journal {
+	display: none;
+}
+
+/* show the selected tab */
+.sheet-tabstoggle[value="character"] ~ div.sheet-character,
+.sheet-tabstoggle[value="grimoire"] ~ div.sheet-grimoire,
+.sheet-tabstoggle[value="journal"] ~ div.sheet-journal {
+	display: block;
+}
+table {
+  border-collapse: separate;
+  border-spacing: 5px;
+}
+td{
+    padding:5px;
+}
+td.center{
+	text-align:center;
+	vertical-align:middle;
+}
+.sheet-popover {
+  position: relative;  /* les .infobulle deviennent référents */
+  cursor: help;
+}
+
+/* on génère un élément :after lors du survol et du focus :*/
+
+.sheet-popover:hover::after,
+.sheet-popover:focus::after {
+  content: attr(aria-label);  /* on affiche aria-label */
+  position: absolute;
+  top: -2.4em;
+  left: 50%;
+  transform: translateX(-50%); /* on centre horizontalement  */
+  z-index: 1; /* pour s'afficher au dessus des éléments en position relative */
+  white-space: nowrap;  /* on interdit le retour à la ligne */
+}
